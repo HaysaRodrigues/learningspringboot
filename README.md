@@ -8,3 +8,9 @@
 - `@RequestMapping("/endpoint")`: onde você coloca o endpoint
 - `@Value`: atribuir um valor da anotation para a variável. Você pode fazer um ternário dentro dela com um valor default també, caso o valor do arquivo de fora não funcione: *@Value("#{systemProperties['unknown'] ?: 'some default'}")*
 - 
+
+
+
+### Geral
+
+- No arquivo `application.properties`, devem ser declaradas as configurações da aplicação, inclusive as relacionadas ao banco de dados dela.
