@@ -1,6 +1,8 @@
 # learning spring boot
 
 
+### [Iniciar um projeto spring](https://start.spring.io/)
+
 ### Annotations
 
 - `@ResponseBody`: para o spring entender que tem que retornar um response e não uma página
@@ -11,7 +13,7 @@
 
 ### Boas práticas 
 - Usar o padrão de projetos DTO 
-- Usar o padrão de projetos Repository
+- Usar o padrão de projetos Repository (classes de persistência de dados)
 
 ### Geral
 
