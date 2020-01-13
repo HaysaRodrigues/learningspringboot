@@ -17,6 +17,8 @@ Por que spring boot? `By now, you're hopefully noticing a pattern – most Sprin
 - `@Value`: atribuir um valor da anotation para a variável. Você pode fazer um ternário dentro dela com um valor default també, caso o valor do arquivo de fora não funcione: ```@Value("#{systemProperties['unknown'] ?: 'some default'}")```
 - `@EnableJpaRepositories`: vai buscar por repositórios no nosso pacote
 - `@EntityScan`: vai buscar por entidades JPA dentro do pacote
+- `@ControllerAdvice`: Quando usada em uma classe que herda de ResponseEntityExceptionHandler, essa annotation faz com que todos os controllers (@Controller e @RestController) enxerguem aquela classe de exceptions.
+- `@ExceptionHandler`: essa annotation tem que estar em todos os métodos que representam uma exception. No caso, ela lida com as exceptions, como o nome sugere.
 
 
 ### resources/application.properties
