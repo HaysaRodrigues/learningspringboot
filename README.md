@@ -34,3 +34,7 @@ Por que spring boot? `By now, you're hopefully noticing a pattern – most Sprin
 
 - Nas classes que o spring gerencia, normalmente colocamos alguma annotation, no caso de uma interface não é necessário, o spring já entende a classe de interface como interface.
 - No arquivo `application.properties`, devem ser declaradas as configurações da aplicação, inclusive as relacionadas ao banco de dados dela.
+
+### Onde buscar bons materiais 
+
+- https://www.baeldung.com/spring-boot-start
