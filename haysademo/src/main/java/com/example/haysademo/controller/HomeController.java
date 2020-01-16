@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class SimpleController {
+public class HomeController {
+
 
     @Value("${spring.application.name}")
     String appName;

@@ -37,7 +37,7 @@ public class BookControllerIntegrationTest {
     }
 
     @Test
-    void whenGetAllBooksThenShouldReturnOk() {
+    public void whenGetAllBooksThenShouldReturnOk() {
         Response response = RestAssured.given().get(API_ROOT);
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
     }
