@@ -15,12 +15,8 @@ import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * Next, let's add a JUnit test that verifies the calls to the API we're written, using RestAssured:
- */
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class SpringBootBootstrapLiveTest {
+public class BookControllerIntegrationTest {
 
     private static final String API_ROOT = "http://localhost:8081/api/books";
 
