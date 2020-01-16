@@ -4,7 +4,7 @@ package com.example.haysademo.controller;
 import com.example.haysademo.exceptions.BookIdMismatchException;
 import com.example.haysademo.exceptions.BookNotFoundException;
 import com.example.haysademo.model.Book;
-import com.example.haysademo.repo.BookRepository;
+import com.example.haysademo.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

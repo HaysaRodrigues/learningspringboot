@@ -1,4 +1,4 @@
-package com.example.haysademo.repo;
+package com.example.haysademo.repository;
 
 import com.example.haysademo.model.Book;
 import org.springframework.data.repository.CrudRepository;
