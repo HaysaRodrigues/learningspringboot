@@ -12,6 +12,7 @@ import java.util.List;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -99,6 +100,7 @@ public class BookControllerIntegrationTest {
     public void whenUpdateCreatedBookThenShouldUpdate() {
         Book book = createBook();
         String location = createBookAsUri(book);
+
         book.setId(Long.parseLong(location.split("api/books/")[1]));
         book.setAuthor("newAuthor");
         Response response = RestAssured.given()
@@ -113,6 +115,23 @@ public class BookControllerIntegrationTest {
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
         assertEquals("newAuthor", response.jsonPath()
                 .get("author"));
+    }
+
+    @Test
+    void whenUpdateCreatedBookWithWrongIdThenShouldReturnMismatchError() {
+        Book book = createBook();
+        String location = createBookAsUri(book);
+
+        book.setId(4);
+
+        Response response = RestAssured.given()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .body(book)
+                .put(location);
+
+        assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCode());
+        assertThat(response.asString()).contains("BOOK ID MISMATCH");
+
     }
 
     @Test
