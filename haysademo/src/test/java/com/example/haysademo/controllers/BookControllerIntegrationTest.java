@@ -1,4 +1,4 @@
-package com.example.haysademo;
+package com.example.haysademo.controllers;
 
 import com.example.haysademo.model.Book;
 import com.jayway.restassured.RestAssured;
