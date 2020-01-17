@@ -130,7 +130,7 @@ public class BookControllerIntegrationTest {
                 .put(location);
 
         assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCode());
-        assertThat(response.asString()).contains("BOOK ID MISMATCH");
+        assertThat(response.asString()).contains("Book ID Mismatch");
 
     }
 

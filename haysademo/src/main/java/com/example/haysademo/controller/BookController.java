@@ -57,10 +57,9 @@ public class BookController {
 
     @PutMapping("/{id}")
     public Book updateBook(@RequestBody Book book, @PathVariable Long id) {
-        Throwable cause = new Throwable();
 
         if (book.getId() != id) {
-            throw new BookIdMismatchException("BOOK ID MISMATCH", cause);
+            throw throwBookIdMismatchException();
         }
         bookRepository.findById(id)
                 .orElseThrow(this::throwBookNotFoundException);
@@ -69,5 +68,9 @@ public class BookController {
 
     private RuntimeException throwBookNotFoundException() {
         return new BookNotFoundException();
+    }
+
+    private RuntimeException throwBookIdMismatchException() {
+        return new BookIdMismatchException();
     }
 }
