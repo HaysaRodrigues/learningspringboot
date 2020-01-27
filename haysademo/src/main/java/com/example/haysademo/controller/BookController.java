@@ -36,6 +36,11 @@ public class BookController {
         return bookRepository.findByTitle(bookTitle);
     }
 
+    @GetMapping("/author/{bookAuthor}")
+    public List findByAuthor(@PathVariable String bookAuthor) {
+        return bookRepository.findByAuthor(bookAuthor);
+    }
+
     @GetMapping("/{id}")
     public Book findOne(@PathVariable Long id) {
         return bookRepository.findById(id)

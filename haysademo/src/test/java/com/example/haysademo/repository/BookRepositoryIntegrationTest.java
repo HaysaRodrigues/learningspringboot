@@ -32,7 +32,20 @@ public class BookRepositoryIntegrationTest {
 
         testEntityManager.persist(book);
 
-        List<Book> bookFound = bookRepository.findByTitle(book.getTitle());
-        assertThat(bookFound.get(0).getTitle()).isEqualTo(book.getTitle());
+        List<Book> booksFound = bookRepository.findByTitle(book.getTitle());
+        assertThat(booksFound.get(0).getTitle()).isEqualTo(book.getTitle());
+    }
+
+    @Test
+    public void whenFindByAuthorThenShouldReturnBook() {
+        int numberOfLetters = 4;
+        Book book = new Book();
+        book.setTitle(randomAlphabetic(numberOfLetters));
+        book.setAuthor(randomAlphabetic(numberOfLetters));
+
+        testEntityManager.persist(book);
+
+        List<Book> booksFound = bookRepository.findByAuthor(book.getAuthor());
+        assertThat(booksFound.get(0).getAuthor()).isEqualTo(book.getAuthor());
     }
 }

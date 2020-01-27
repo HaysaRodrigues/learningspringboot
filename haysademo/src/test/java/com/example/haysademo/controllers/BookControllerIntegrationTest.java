@@ -55,6 +55,19 @@ public class BookControllerIntegrationTest {
     }
 
     @Test
+    void whenGetCreatedBookByAuthorShouldReturnOk() {
+
+        Book book = createBook();
+        createBookAsUri(book);
+
+        Response response = RestAssured.get(API_ROOT + "/author/" + book.getAuthor());
+
+        assertEquals(HttpStatus.OK.value(), response.getStatusCode());
+        assertTrue(response.getBody().asString().contains(book.getAuthor()));
+
+    }
+
+    @Test
     public void whenGetCreatedBookByIdShouldReturnOk() {
         Book book = createBook();
         String location = createBookAsUri(book);
