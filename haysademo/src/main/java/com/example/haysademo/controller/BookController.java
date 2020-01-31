@@ -1,7 +1,6 @@
 package com.example.haysademo.controller;
 
 
-import com.example.haysademo.exceptions.BookIdMismatchException;
 import com.example.haysademo.exceptions.BookNotFoundException;
 import com.example.haysademo.model.Book;
 import com.example.haysademo.repository.BookRepository;
@@ -42,7 +41,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public Book findOne(@PathVariable Long id) {
+    public Book findOne(@PathVariable String id) {
         return bookRepository.findById(id)
                 .orElseThrow(this::throwBookNotFoundException);
     }
@@ -54,18 +53,15 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable String id) {
         bookRepository.findById(id)
                 .orElseThrow(this::throwBookNotFoundException);
         bookRepository.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public Book updateBook(@RequestBody Book book, @PathVariable Long id) {
+    public Book updateBook(@RequestBody Book book, @PathVariable String id) {
 
-        if (book.getId() != id) {
-            throw throwBookIdMismatchException();
-        }
         bookRepository.findById(id)
                 .orElseThrow(this::throwBookNotFoundException);
         return bookRepository.save(book);
@@ -75,7 +71,4 @@ public class BookController {
         return new BookNotFoundException();
     }
 
-    private RuntimeException throwBookIdMismatchException() {
-        return new BookIdMismatchException();
-    }
 }

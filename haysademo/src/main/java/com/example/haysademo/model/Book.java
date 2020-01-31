@@ -1,13 +1,13 @@
 package com.example.haysademo.model;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private String id;
 
     @Column(nullable = false, unique = true)
     private String title;
@@ -15,13 +15,13 @@ public class Book {
     @Column(nullable = false)
     private String author;
 
-    public long getId() {
-        return id;
+    public Book() {
+        UUID uuid = UUID.randomUUID();
+        this.id = uuid.toString();
     }
 
-    public Book setId(long id) {
-        this.id = id;
-        return this;
+    public String getId() {
+        return id;
     }
 
     public String getTitle() {

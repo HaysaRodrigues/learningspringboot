@@ -114,7 +114,6 @@ public class BookControllerIntegrationTest {
         Book book = createBook();
         String location = createBookAsUri(book);
 
-        book.setId(Long.parseLong(location.split("api/books/")[1]));
         book.setAuthor("newAuthor");
         Response response = RestAssured.given()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -130,22 +129,6 @@ public class BookControllerIntegrationTest {
                 .get("author"));
     }
 
-    @Test
-    void whenUpdateCreatedBookWithWrongIdThenShouldReturnMismatchError() {
-        Book book = createBook();
-        String location = createBookAsUri(book);
-
-        book.setId(4);
-
-        Response response = RestAssured.given()
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .body(book)
-                .put(location);
-
-        assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCode());
-        assertThat(response.asString()).contains("Book ID Mismatch");
-
-    }
 
     @Test
     public void whenDeleteCreatedBookThenShouldReturnOk() {

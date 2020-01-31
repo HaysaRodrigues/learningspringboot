@@ -21,9 +21,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 new HttpHeaders(), HttpStatus.NOT_FOUND, webRequest);
     }
 
-    @ExceptionHandler({BookIdMismatchException.class, ConstraintViolationException.class, DataIntegrityViolationException.class})
+    @ExceptionHandler({ConstraintViolationException.class, DataIntegrityViolationException.class})
     public ResponseEntity<Object> handleBadRequest(Exception exception, WebRequest webRequest) {
-        String bodyOfResponse = "Book ID Mismatch";
+        String bodyOfResponse = "Some parameter is invalid or is missing. Exception: " + exception.getLocalizedMessage();
         return handleExceptionInternal(exception, bodyOfResponse,
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, webRequest);
     }
