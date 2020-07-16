@@ -25,6 +25,8 @@ Por que spring boot? `By now, you're hopefully noticing a pattern – most Sprin
 ### resources/application.properties
 
 - [Nessa página da documentação](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html) têm várias properties que podemos usar nesse arquivo para diversas configurações.
+- No `application.properties` também colocamos os schedulers com jobs do cron
+- Também é possível criar vários application.properties para cada ambiente: `application-production.properties, application-developmente.properties` e assim vai.
 
 ### Boas práticas 
 - Usar o padrão de projetos DTO 
